@@ -1,17 +1,24 @@
 import React from "react";
+import ItemSkillStyled from "./ItemSkillStyled";
+import Line from "./Line";
+import DescriptionItem from "./DescriptionItem";
+import ButtonItem from "./ButtonItem";
+import ItemText from "./ItemText";
 
-const ItemSkillBaby = params => {
+const ItemSkillBaby = ({state, disabled, uncomplete}) => {
+  const tittleButton = state === '0'? 'Complete': state === '1'? 'Uncompleted': 'Not answered'
   return (
     <>
-      <div id='list-item'>
-        <div id='description-item'>
-          <span id='subject'>Babbies like imitating Conversation.</span>
-          <span id='description'>Usually achieved by 2-4 mounts.</span>
-        </div>
-        <div id='button-item'>
-          <button id='button-state'> Completed</button>
-        </div>
-      </div>
+      <ItemSkillStyled>
+        <DescriptionItem>
+          
+          <ItemText bold>Babbies like imitating Conversation.</ItemText>
+          
+          <ItemText >Usually achieved by 2-4 mounts.</ItemText>
+        </DescriptionItem>
+
+        <ButtonItem uncomplete={uncomplete} disabled={disabled} > {tittleButton}</ButtonItem>
+      </ItemSkillStyled>
     </>
   );
 };

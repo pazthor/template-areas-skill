@@ -1,9 +1,16 @@
 import React from 'react'
 import ItemSkillBaby from './ItemSkillBaby'
-
+import AreaBodyStyled from './AreaBodyStyled'
+import ListSkillBabiesStyled from './ListSkillBabiesStyled'
+// TODO: Deprecated
 const ListSkillBabies = (params) => {
     return (
         <>
+        <ListSkillBabiesStyled>
+        <ItemSkillBaby></ItemSkillBaby>
+        <ItemSkillBaby></ItemSkillBaby>
+        </ListSkillBabiesStyled>
+
            <div id='list-skill-babies'>
               <ul>
                   <li>

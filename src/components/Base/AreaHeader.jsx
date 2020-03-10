@@ -20,7 +20,7 @@ const AreaHeader = ({ color }) => {
             Social & Emotional
           </Button>
         </PillStyled>
-        <Line/>                                     
+        <Line color='white'  width='40%'/>                                     
       
        
         <TitleSkill>

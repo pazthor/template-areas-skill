@@ -1,14 +1,32 @@
 import React from 'react'
-import ListSkillBabies from './ListSkillBabies';
+import AreaBodyStyled from './AreaBodyStyled';
+import Line from './Line';
+import ListSkillBabiesStyled from './ListSkillBabiesStyled';
+import ItemSkillBaby from './ItemSkillBaby';
+import ButtonNext from './ButtonNext';
 
 const AreaBody = (params) => {
-    
+    const colorLine = '#d3d3d3';
     return (
         <>
-        <div id='container-list-skill-babies'>
-            <ListSkillBabies></ListSkillBabies>
-          <button>Next</button>
-      </div>
+        <AreaBodyStyled> 
+        <ListSkillBabiesStyled>    
+            <ItemSkillBaby state='0'></ItemSkillBaby>
+            <Line color={colorLine} width='100%' borderWidth='1px' />
+            <ItemSkillBaby state='1' uncomplete={true} ></ItemSkillBaby>
+            <Line color={colorLine} width='100%' borderWidth='1px'/>
+            <ItemSkillBaby state ='2' disabled={true} ></ItemSkillBaby>
+            <Line color={colorLine} width='100%'  borderWidth='1px'/>
+            <ItemSkillBaby state= '0' ></ItemSkillBaby>
+            
+        </ListSkillBabiesStyled>
+            
+          <br />
+          <ButtonNext color="#75B753">
+          Next
+          </ButtonNext>
+      
+        </AreaBodyStyled>
         </>
     )
 }
