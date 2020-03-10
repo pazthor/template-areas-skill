@@ -3,37 +3,46 @@ import AreaHeaderStyled from "./AreaHeaderStyled";
 import Button from "./Button";
 import PillStyled from "./PillStyled";
 import TitleAreas from "./TitleAreas";
+import Line from "./Line";
+import TitleSkill from "./TitleSkill";
+import BodySkill from "./BodySkill";
 
-const AreaHeader = ({color}) => {
+const AreaHeader = ({ color }) => {
   return (
     <>
-<AreaHeaderStyled color={color}>
-
+      <AreaHeaderStyled color={color}>
         <TitleAreas>Areas</TitleAreas>
-        <PillStyled id='pildora'>          
+        <PillStyled id="pildora">
           <Button pillLeft isActive color={color}>
-            Physical   
+            Physical
           </Button>
           <Button pillRight color={color}>
-          Social & Emotional
+            Social & Emotional
           </Button>
         </PillStyled>
-        <hr />
-        <br />
-     
-        <div id='text'>
-          <h4>Skill: Standing up</h4>
-          <p>
+        <Line/>                                     
+      
+       
+        <TitleSkill>
+        Skill: Standing up
+        </TitleSkill>
+
+        <BodySkill>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
             debitis incidunt expedita sit eius cumque! Iure qui obcaecati odio
             ducimus rem ex facilis laudantium ullam officia! Magnam eos vitae
             ullam?
-          </p>
-        </div>
-      
-   
-</AreaHeaderStyled>
-     
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+            debitis incidunt expedita sit eius cumque! Iure qui obcaecati odio
+            ducimus rem ex facilis laudantium ullam officia! Magnam eos vitae
+            ullam?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis
+            debitis incidunt expedita sit eius cumque! Iure qui obcaecati odio
+            ducimus rem ex facilis laudantium ullam officia! Magnam eos vitae
+            ullam?
+          
+        </BodySkill>        
+      </AreaHeaderStyled>
     </>
   );
 };
