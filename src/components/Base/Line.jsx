@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export default styled.div`
-width: 40%;
+width: ${props => props.width};
   padding-top:1rem;
-    border-bottom: 2px solid white;
+    border-bottom: ${props=> props.borderWidth?props.borderWidth: '2px'} solid ${props => props.color};
 `;
 
 
