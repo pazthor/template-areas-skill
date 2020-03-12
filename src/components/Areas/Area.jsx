@@ -1,15 +1,18 @@
 import React from 'react'
 import PhysicalArea from './Physical/PhysicalArea';
 import WrapperSection from '../Base/WrapperSection';
+import WrapperArea from '../Base/WrapperArea';
 
 
 const Area = (params) => {
     return(
         <>
-        <WrapperSection>
-        <PhysicalArea></PhysicalArea>
-        </WrapperSection>
         
+        <WrapperArea>
+        <WrapperSection>
+       
+        </WrapperSection>
+        </WrapperArea>
 
         </>
     )
