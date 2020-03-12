@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from 'react-redux';
+import {getSocialData, updateMilestoneButtonSocial} from '../../../redux/actions'
 import AreaHeader from "../../Base/AreaHeader";
 import AreaBody from "../../Base/AreaBody";
 import WrapperSection from "../../Base/WrapperSection";
 import WrapperArea from "../../Base/WrapperArea";
 import redirecTo from "../../../utils/redirect";
-const SocialEmotionalArea = params => {
+import { TOKEN } from "../../../utils/Constants";
+const SocialEmotionalArea = ({getSocialData, id, description, titleHeader, milestones, updateMilestoneButtonSocial}) => {
   const SocialAreaColor = "#D43571";
+
+  const handleOnChangeButton = (id, state) => {
+    
+    updateMilestoneButtonSocial(id, state);
+  }
+
+  useEffect(() => {
+    if(milestones.length === 0 ) getSocialData(TOKEN);
+    
+  }, [])
   return (
     <>
       <WrapperArea>
@@ -20,14 +33,30 @@ const SocialEmotionalArea = params => {
             onClickPhysical={() => {
               redirecTo("/physical");
             }}
-            titleSkillText={"aqi va el api medianrte icontext"}
-            bodySkillText={"boddy el text"}
+            titleSkillText={titleHeader}
+            bodySkillText={description}
           ></AreaHeader>
-          <AreaBody></AreaBody>
+          <AreaBody milestones={milestones} onChangeButton={handleOnChangeButton} pathRedirect="/physical" titleButtonNext='Finish assessment' ></AreaBody>
         </WrapperSection>
       </WrapperArea>
     </>
   );
 };
 
-export default SocialEmotionalArea;
+
+const mapStateToProps = state => {
+  return {
+    id: state.SocialArea.id,
+    description: state.SocialArea.description,
+    titleHeader: state.SocialArea.title,
+    milestones: state.SocialArea.milestones
+  };
+};
+
+const mapDispatchToProps = {
+  getSocialData,
+  updateMilestoneButtonSocial
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SocialEmotionalArea);
