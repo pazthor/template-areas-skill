@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const ButtonItem = styled.button`
  
-  background: ${props => props.uncomplete? 'gainsboro':'#75B753' }; // cambiar
-  color: ${props => props.uncomplete? '#75B753':'white' }; 
+  background: ${props => props.backgroundColor};
+  color: ${props => props.color }; 
   
   font-size: 1.2rem;
   font-weight:bold;

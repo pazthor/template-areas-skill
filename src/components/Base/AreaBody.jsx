@@ -1,34 +1,42 @@
-import React from 'react'
-import AreaBodyStyled from './AreaBodyStyled';
-import Line from './Line';
-import ListSkillBabiesStyled from './ListSkillBabiesStyled';
-import ItemSkillBaby from './ItemSkillBaby';
-import ButtonNext from './ButtonNext';
+import React from "react";
+import AreaBodyStyled from "./AreaBodyStyled";
+import ListSkillBabiesStyled from "./ListSkillBabiesStyled";
+import ItemSkillBaby from "./ItemSkillBaby";
+import ButtonNext from "./ButtonNext";
+import redirecTo from "../../utils/redirect";
+import LoadingData from "./Loading";
 
-const AreaBody = (params) => {
-    const colorLine = '#d3d3d3';
-    return (
-        <>
-        <AreaBodyStyled> 
-        <ListSkillBabiesStyled>    
-            <ItemSkillBaby state='0'></ItemSkillBaby>
-            <Line color={colorLine} width='100%' borderWidth='1px' />
-            <ItemSkillBaby state='1' uncomplete={true} ></ItemSkillBaby>
-            <Line color={colorLine} width='100%' borderWidth='1px'/>
-            <ItemSkillBaby state ='2' disabled={true} ></ItemSkillBaby>
-            <Line color={colorLine} width='100%'  borderWidth='1px'/>
-            <ItemSkillBaby state= '0' ></ItemSkillBaby>
-            
+const AreaBody = ({ milestones, onChangeButton, pathRedirect, titleButtonNext }) => {
+  
+  return (
+    <>
+    
+      <AreaBodyStyled>
+        <ListSkillBabiesStyled>
+        {milestones.length ?
+        milestones.map((x, key) => {
+          return (
+            <ItemSkillBaby
+              key={key}
+              id={x.id}
+              title={x.title}
+              description={x.description}
+              answer={x.answer}
+              state="0"
+              onChangeButton={onChangeButton}
+            ></ItemSkillBaby>
+          );
+        }):
+        <LoadingData />
+      }
+          {}
         </ListSkillBabiesStyled>
-            
-          <br />
-          <ButtonNext color="#75B753">
-          Next
-          </ButtonNext>
-      
-        </AreaBodyStyled>
-        </>
-    )
-}
+
+        <br />
+        <ButtonNext onClick={()=> redirecTo(pathRedirect)} color="#75B753">{titleButtonNext}</ButtonNext>
+      </AreaBodyStyled>
+    </>
+  );
+};
 
 export default AreaBody;
