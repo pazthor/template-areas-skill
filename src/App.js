@@ -1,17 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import Area from './components/Areas/Area';
-import WrapperArea from './components/Base/WrapperArea';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./Routes";
 
 function App() {
   return (
-     <>
-     <WrapperArea>
-     <Area></Area>
-     </WrapperArea>
-     </>
+    <>
+      <BrowserRouter basename="/area">
+        <Routes />
+      </BrowserRouter>
+    </>
   );
 }
 
